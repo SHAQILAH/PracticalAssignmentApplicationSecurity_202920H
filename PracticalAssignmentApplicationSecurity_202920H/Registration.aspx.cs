@@ -190,18 +190,18 @@ namespace PracticalAssignmentApplicationSecurity_202920H
                             using (SqlDataAdapter sda = new SqlDataAdapter())
                             {
                                 cmd.CommandType = CommandType.Text;
-                                cmd.Parameters.AddWithValue("@FirstName", tb_fname.Text.Trim());
-                                cmd.Parameters.AddWithValue("@LastName", tb_lname.Text.Trim());
-                                cmd.Parameters.AddWithValue("@EmailAddress", tb_email.Text.Trim());
-                                cmd.Parameters.AddWithValue("@CreditCardEncrypted", Convert.ToBase64String(encryptDataFields(tb_credit.Text.Trim())));
+                                cmd.Parameters.AddWithValue("@FirstName", HttpUtility.HtmlEncode(tb_fname.Text.Trim()));
+                                cmd.Parameters.AddWithValue("@LastName", HttpUtility.HtmlEncode(tb_lname.Text.Trim()));
+                                cmd.Parameters.AddWithValue("@EmailAddress", HttpUtility.HtmlEncode(tb_email.Text.Trim()));
+                                cmd.Parameters.AddWithValue("@CreditCardEncrypted", Convert.ToBase64String(encryptDataFields(HttpUtility.HtmlEncode(tb_credit.Text.Trim()))));
                                 cmd.Parameters.AddWithValue("@PasswordHash", finalHash);
                                 cmd.Parameters.AddWithValue("@PasswordSalt", salt);
-                                cmd.Parameters.AddWithValue("@DOB", tb_birthdate.Text.Trim());
+                                cmd.Parameters.AddWithValue("@DOB", HttpUtility.HtmlEncode(tb_birthdate.Text.Trim()));
 
                                 if (fu_photo.HasFile)
                                 {
                                     
-                                    string photoName = fu_photo.FileName.ToString();
+                                    string photoName = HttpUtility.HtmlEncode(fu_photo.FileName.ToString());
                                     fu_photo.PostedFile.SaveAs(Server.MapPath("~/Photos/") + photoName);
                                     cmd.Parameters.AddWithValue("@Photo", photoName);
                                     

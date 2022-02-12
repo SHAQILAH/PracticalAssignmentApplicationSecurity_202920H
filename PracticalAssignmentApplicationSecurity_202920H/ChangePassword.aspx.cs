@@ -67,40 +67,12 @@ namespace PracticalAssignmentApplicationSecurity_202920H
         protected void save_btnClick(object sender, EventArgs e)
         {
             
-
-            
-
-
-
-
-            //if (!String.IsNullOrEmpty(tb_newpassword.Text) && !String.IsNullOrEmpty(tb_currentpassword.Text))
-            //{
                 
 
 
             
                 newPassword();
-            //}
             
-                
-
-                
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

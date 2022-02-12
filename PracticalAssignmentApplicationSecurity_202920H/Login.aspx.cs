@@ -131,7 +131,7 @@ namespace PracticalAssignmentApplicationSecurity_202920H
                                                                     cmd.CommandType = CommandType.Text;
                                                                     cmd.Parameters.AddWithValue("@AccountLockout", 1);
                                                                     cmd.Parameters.AddWithValue("@DateTimeAccountLock", DateTime.Now);
-                                                                    cmd.Parameters.AddWithValue("@EmailAddress", tb_email.Text.Trim());
+                                                                    cmd.Parameters.AddWithValue("@EmailAddress", HttpUtility.HtmlEncode(tb_email.Text.Trim()));
 
                                                                     cmd.Connection = con;
                                                                     con.Open();
@@ -329,7 +329,7 @@ namespace PracticalAssignmentApplicationSecurity_202920H
             SqlConnection connection = new SqlConnection(MYDB202920HConnectionString);
             string query = "select Id FROM AuditLog WHERE EmailAddress=@EmailAddress";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@EmailAddress", tb_email.Text.Trim());
+            command.Parameters.AddWithValue("@EmailAddress", HttpUtility.HtmlEncode(tb_email.Text.Trim()));
 
             try
             {
@@ -369,7 +369,7 @@ namespace PracticalAssignmentApplicationSecurity_202920H
             SqlConnection connection = new SqlConnection(MYDB202920HConnectionString);
             string query = "select AccountLockout FROM Users WHERE EmailAddress=@EmailAddress";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@EmailAddress", tb_email.Text.Trim());
+            command.Parameters.AddWithValue("@EmailAddress", HttpUtility.HtmlEncode(tb_email.Text.Trim()));
 
             try
             {
@@ -409,7 +409,7 @@ namespace PracticalAssignmentApplicationSecurity_202920H
             SqlConnection connection = new SqlConnection(MYDB202920HConnectionString);
             string query = "select Counter from Users where EmailAddress=@EmailAddress";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@EmailAddress", tb_email.Text.ToString().Trim());
+            command.Parameters.AddWithValue("@EmailAddress", HttpUtility.HtmlEncode(tb_email.Text.ToString().Trim()));
 
             try
             {
@@ -449,7 +449,7 @@ namespace PracticalAssignmentApplicationSecurity_202920H
             SqlConnection connection = new SqlConnection(MYDB202920HConnectionString);
             string query = "select Counter from Users where EmailAddress=@EmailAddress";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@EmailAddress", tb_email.Text.ToString().Trim());
+            command.Parameters.AddWithValue("@EmailAddress", HttpUtility.HtmlEncode(tb_email.Text.ToString().Trim()));
 
             try
             {
@@ -472,7 +472,7 @@ namespace PracticalAssignmentApplicationSecurity_202920H
                                             {
                                                 cmd.CommandType = CommandType.Text;
                                                 cmd.Parameters.AddWithValue("@Counter", theCounter + 1);
-                                                cmd.Parameters.AddWithValue("@EmailAddress", tb_email.Text.Trim());
+                                                cmd.Parameters.AddWithValue("@EmailAddress", HttpUtility.HtmlEncode(tb_email.Text.Trim()));
 
                                                 cmd.Connection = con;
                                                 con.Open();
@@ -516,7 +516,7 @@ namespace PracticalAssignmentApplicationSecurity_202920H
                         {
                             cmd.CommandType = CommandType.Text;
                             
-                            cmd.Parameters.AddWithValue("@EmailAddress", tb_email.Text.Trim());
+                            cmd.Parameters.AddWithValue("@EmailAddress", HttpUtility.HtmlEncode(tb_email.Text.Trim()));
                            
                             cmd.Parameters.AddWithValue("@DateTimeUserLogsIn", DateTime.Now);
                             
@@ -550,7 +550,7 @@ namespace PracticalAssignmentApplicationSecurity_202920H
             SqlConnection connection = new SqlConnection(MYDB202920HConnectionString);
             string query = "select DateTimeAccountLock from Users where EmailAddress=@EmailAddress";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@EmailAddress", tb_email.Text.ToString().Trim());
+            command.Parameters.AddWithValue("@EmailAddress", HttpUtility.HtmlEncode(tb_email.Text.ToString().Trim()));
 
             try
             {
@@ -594,7 +594,7 @@ namespace PracticalAssignmentApplicationSecurity_202920H
                         {
 
                             
-                            cmd.Parameters.AddWithValue("@EmailAddress", tb_email.Text.ToString().Trim()); ;
+                            cmd.Parameters.AddWithValue("@EmailAddress", HttpUtility.HtmlEncode(tb_email.Text.ToString().Trim()));
                             cmd.Parameters.AddWithValue("@DateTimeAccountLock", DBNull.Value);
                             cmd.Parameters.AddWithValue("@AccountLockout", 0);
                             cmd.Parameters.AddWithValue("@Counter", 0);
