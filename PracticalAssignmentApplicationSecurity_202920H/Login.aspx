@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    //the site key was removed as stated in the assignment submission folder
+    <%--the site key was removed as stated in the assignment submission folder--%>
     <script src="https://www.google.com/recaptcha/api.js?render=sitekey"></script>
 </head>
 <body>
@@ -72,7 +72,7 @@
         </div>
     </form>
     
-    //the site key was removed as stated in the assignment submission folder
+    <%--the site key was removed as stated in the assignment submission folder--%>
     <script>
         grecaptcha.ready(function () {
             grecaptcha.execute('sitekey', { action: 'Login' }).then(function (token) {
