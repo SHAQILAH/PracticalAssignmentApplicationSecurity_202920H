@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LdxTVkeAAAAAG1eSvY9cBBivoNSxP2c_hgt0YkM"></script>
+    //the site key was removed as stated in the assignment submission folder
+    <script src="https://www.google.com/recaptcha/api.js?render=sitekey"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -70,10 +71,11 @@
             <asp:Label ID="lb_gScore" runat="server" EnableViewState="False"></asp:Label>
         </div>
     </form>
-
+    
+    //the site key was removed as stated in the assignment submission folder
     <script>
         grecaptcha.ready(function () {
-            grecaptcha.execute('6LdxTVkeAAAAAG1eSvY9cBBivoNSxP2c_hgt0YkM', { action: 'Login' }).then(function (token) {
+            grecaptcha.execute('sitekey', { action: 'Login' }).then(function (token) {
                 document.getElementById("g-recaptcha-response").value = token;
             });
         });
