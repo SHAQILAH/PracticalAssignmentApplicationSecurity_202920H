@@ -287,9 +287,11 @@ namespace PracticalAssignmentApplicationSecurity_202920H
             bool result = true;
 
             string captchaResponse = Request.Form["g-recaptcha-response"];
+            
+            // the secret key is removed as stated in the assignment submission folder
 
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create
-                (" https://www.google.com/recaptcha/api/siteverify?secret=6LdxTVkeAAAAAOEImI0Ug7NhFtZPpm4uOQJAKjWX &response=" + captchaResponse);
+                (" https://www.google.com/recaptcha/api/siteverify?secret= &response=" + captchaResponse);
 
             try
             {
